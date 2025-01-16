@@ -51,11 +51,11 @@ void merge(vector<double>& array, int left, int mid, int right) {
  * left: izquierda del subarreglo.
  * right: derecha del subarreglo.
  */
-void mergeSort(vector<double>& array, int left, int right) {
+void merge_sort(vector<double>& array, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
-        mergeSort(array, left, mid); // ordena una mitad
-        mergeSort(array, mid + 1, right); // ordena la otra mitad
+        merge_sort(array, left, mid); // ordena una mitad
+        merge_sort(array, mid + 1, right); // ordena la otra mitad
         merge(array, left, mid, right); // junta ambas partes ordenadas
     }
 }
@@ -69,7 +69,7 @@ int main() {
     for (int i = 0; i < numberOfValues; ++i) {
         cin >> values[i];
     }
-    mergeSort(values, 0, numberOfValues - 1); // ordena el vector
+    merge_sort(values, 0, numberOfValues - 1); // ordena el vector
     cout << "\nResultado:\nValores ordenados de mayor a menor:\n"; // resultado
     for (double value : values) {
         cout << value << " ";
